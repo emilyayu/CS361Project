@@ -24,7 +24,7 @@ from tkinter import messagebox
 root = Tk()
 root.title('Where Should I Eat in Los Angeles?')
 font_xlarge = font.Font(family='Georgia', size='18', weight='bold')
-font_large = font.Font(family='Georgia', size='14', weight='bold')
+font_large = font.Font(family='Georgia', size='14')
 font_small = font.Font(family='Georgia', size='12')
 # frame = Label(
 #     root,
@@ -48,7 +48,7 @@ label.place(x=-50, y=-400)
 app_title = tk.Label(root, text='Choose a Restaurant in Los Angeles', font=font_xlarge)
 app_title.pack(pady= 25, side = TOP )
 price_frame = tk.Frame(root)
-price_frame.pack(padx =30,pady=15, expand=1)
+price_frame.config(width=400, height=450)#pack(padx =30,pady=10, expand=1)
 cuisine_frame = tk.Frame(root)
 rating_frame = tk.Frame(root)
 
@@ -113,8 +113,8 @@ price_values = {'$ : $0-$10': '1',
                 'No Preference': '5'}
 selected = IntVar()
 lbl_price_preference = tk.Label(price_frame, text='Price Preference Per Entree', font=font_large)
-lbl_price_preference.pack(padx = 15, pady = 40)
-price_frame.pack(pady=50)
+lbl_price_preference.pack(padx = 15, pady = 10)
+price_frame.pack(anchor=CENTER) #pady=50
 # price_frame.place(x=50, y=50)
 
 for (text, value) in price_values.items():
@@ -125,13 +125,13 @@ for (text, value) in price_values.items():
                     # indicator=0,
                     # background="light blue"
                     )
-    r.pack(anchor=W)
+    r.pack(ipadx=5, anchor=W)
 
 Button(price_frame, text='Next', command=clicked, padx=15, pady=5) \
-    .pack(ipadx=5, ipady=15, expand=True)
+    .pack(ipadx=5, ipady=5, expand=True)
 
 exit = Button(root, text="Exit", fg="black", command=root.destroy) \
-    .pack(side=BOTTOM)
+    .pack(side= BOTTOM,ipadx=5, ipady=5)
 
 # Execute Tkinter
 root.mainloop()
