@@ -22,7 +22,7 @@ from tkinter import messagebox
 
 # create root window
 root = Tk()
-root.title('Where Should I Eat in Los Angeles?')
+root.title('')
 font_xlarge = font.Font(family='Georgia', size='18', weight='bold')
 font_large = font.Font(family='Georgia', size='14')
 font_small = font.Font(family='Georgia', size='12')
@@ -45,13 +45,14 @@ label = Label(
 )
 label.place(x=-50, y=-400)
 # root['background'] = 'white'
-app_title = tk.Label(root, text='Choose a Restaurant in Los Angeles', font=font_xlarge)
+app_title = tk.Label(root, text='Where Should I Eat in Los Angeles', font=font_xlarge)
 app_title.pack(pady= 25, side = TOP )
 price_frame = tk.Frame(root)
 price_frame.config(width=400, height=450)#pack(padx =30,pady=10, expand=1)
 cuisine_frame = tk.Frame(root)
 rating_frame = tk.Frame(root)
-
+help = Button(root, text="Need Help?", fg="black", command=help) \
+    .pack(ipadx=5, ipady=5)
 
 
 def change_to_price_frame():
@@ -130,12 +131,17 @@ for (text, value) in price_values.items():
 
 Button(price_frame, text='Next', command=clicked, padx=15, pady=5) \
     .pack(ipadx=5, ipady=5, expand=True)
+
+
 # exit = Button(root, text="Exit", fg="black", command=root.destroy) \
 #     .pack(side= BOTTOM,ipadx=5, ipady=5)
-help = Button(root, text="Need Help?", fg="black", command=help) \
-    .pack(ipadx=5, ipady=5)
 
-
+### Cuisine Preferences
+# lbl_cuisine_preference = tk.Label(cuisine_frame, text='Select Cuisine Preference', font=font_large)
+# lbl_cuisine_preference.pack(padx = 15, pady = 10)
+# cuisine_frame.pack(anchor=CENTER) #pady=50
+Button(cuisine_frame, text='Back', command=change_to_price_frame, padx=15, pady=5) \
+    .pack(ipadx=5, ipady=5, expand=True)
 
 
 # Execute Tkinter
