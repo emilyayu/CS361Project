@@ -68,7 +68,8 @@ def change_to_cuisine_frame():
 
 
 
-
+def help():
+    messagebox.showinfo('Help!', 'Help is On the Way')
 
 ######
 # Sorts Restaurants in Los Angeles by Price
@@ -112,7 +113,7 @@ price_values = {'$ : $0-$10': '1',
                 '$$$$ : $50 +': '4',
                 'No Preference': '5'}
 selected = IntVar()
-lbl_price_preference = tk.Label(price_frame, text='Price Preference Per Entree', font=font_large)
+lbl_price_preference = tk.Label(price_frame, text='Select Price Preference Per Entree', font=font_large)
 lbl_price_preference.pack(padx = 15, pady = 10)
 price_frame.pack(anchor=CENTER) #pady=50
 # price_frame.place(x=50, y=50)
@@ -129,9 +130,13 @@ for (text, value) in price_values.items():
 
 Button(price_frame, text='Next', command=clicked, padx=15, pady=5) \
     .pack(ipadx=5, ipady=5, expand=True)
+# exit = Button(root, text="Exit", fg="black", command=root.destroy) \
+#     .pack(side= BOTTOM,ipadx=5, ipady=5)
+help = Button(root, text="Need Help?", fg="black", command=help) \
+    .pack(ipadx=5, ipady=5)
 
-exit = Button(root, text="Exit", fg="black", command=root.destroy) \
-    .pack(side= BOTTOM,ipadx=5, ipady=5)
+
+
 
 # Execute Tkinter
 root.mainloop()
